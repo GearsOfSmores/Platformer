@@ -6,11 +6,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float JumpHoldTime;
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
     private BoxCollider2D boxCollider;
     private float horizontalInput;
+    private float keyUp;
+    private float keyDown;
     
 
     private void Awake()
@@ -32,7 +35,19 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        //Checking how long space key is press
+        if (Input.GetKeyUp("space"))
+        {
+            keyUp = Time.time;
+        }
+        if (Input.GetKeyDown("space"))
+        {
+            keyDown = Time.time;
+        }
+
+        if (Input.GetKey(KeyCode.Space) 
+            && Time.time - keyDown < JumpHoldTime
+            && grounded)
             Jump();
 
         //set animtor parameters
