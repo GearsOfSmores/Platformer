@@ -40,7 +40,7 @@ public class Mine : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.tag == "Player" && collideTime < invulerableTime && firecol.enabled ==true)
+        if (collision.tag == "Player")
             collision.GetComponent<Health>().TakeDamage(damage);
     }
 }

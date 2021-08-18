@@ -20,8 +20,8 @@ TagManager:
   - Player
   - Enemy
   - Gravel
-  - 
-  - 
+  - light
+  - groundLayer
   - 
   - 
   - 
@@ -50,9 +50,15 @@ TagManager:
   - name: Foreground
     uniqueID: 1959292393
     locked: 0
-  - name: Player
+  - name: Building
     uniqueID: 2076396013
     locked: 0
-  - name: Ground
+  - name: Player
     uniqueID: 23302083
+    locked: 0
+  - name: Ground
+    uniqueID: 1950014351
+    locked: 0
+  - name: groundLayer
+    uniqueID: 457916511
     locked: 0

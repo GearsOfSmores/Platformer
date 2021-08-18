@@ -6,9 +6,14 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("Fireball")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
+
+    [Header("SlickKick")]
+
+
    
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -57,6 +62,12 @@ public class PlayerAttack : MonoBehaviour
                 return i;
        }
         return 0;
+    }
+
+
+    private void SlideKick()
+    {
+
     }
 }
 
