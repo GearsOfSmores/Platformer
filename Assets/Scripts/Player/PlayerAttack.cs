@@ -16,7 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
    
     private Animator anim;
-    private PlayerMovement playerMovement;
+     private PlayerMovement playerMovement;
+    
 
     //checking when the last shot was fired
     //mathf.ifnity is show that the cooldowntimer doesnt start the game at zero and not allowing the player to fire
@@ -65,10 +66,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    private void SlideKick()
-    {
-
-    }
+    
 }
 
 
