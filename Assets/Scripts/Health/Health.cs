@@ -5,27 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    [Header ("Health")]
+
+    [Header("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
 
-    
+
 
 
     [Header("Iframes")]
-    [SerializeField]  private float IframesDuration;
+    [SerializeField] private float IframesDuration;
     [SerializeField] private int numberOfFlashes;
-    private SpriteRenderer spriteRend;
-
+     public SpriteRenderer spriteRend;
+    
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
-       
+
 
 
     }
@@ -50,7 +51,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            if(!dead)
+            if (!dead)
             {
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
@@ -58,7 +59,7 @@ public class Health : MonoBehaviour
                 SceneManager.LoadScene("LoseScreen");
             }
 
-            
+
         }
     }
     public void AddHealth(float _value)
@@ -76,12 +77,12 @@ public class Health : MonoBehaviour
         {
             spriteRend.color = new Color(1, 0, 0, 0.5f);
             yield return new WaitForSeconds(IframesDuration / (numberOfFlashes * 2));
-            spriteRend.color =  Color.white;
+            spriteRend.color = Color.white;
             yield return new WaitForSeconds(IframesDuration / (numberOfFlashes * 2));
         }
 
         Physics2D.IgnoreLayerCollision(9, 10, false);
     }
 
-   
+
 }  
